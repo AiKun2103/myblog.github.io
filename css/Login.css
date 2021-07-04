@@ -1,0 +1,39 @@
+body{
+    background-color:#cccccc;
+}
+#container{
+    background-color: white;
+    color:#2289f0;
+    padding:15px;
+    margin:0px auto 0px;
+    width:600px;
+    text-align: center;
+    font-family: "微软雅黑 Light";
+    box-shadow: 10px 10px 15px black;
+}
+hr{
+    width:80%;
+    border:#2289f0 1px solid;
+    margin-bottom: 15px;
+}
+input{
+    width:180px;
+    height:20px;
+    margin:5px;
+    font-size: 16px;
+    font-family: "微软雅黑 Light";
+}
+button{
+    width:120px;
+    height:40px;
+    background-color: #2289f0;
+    border:0px;
+    color:white;
+    margin:10px;
+    font-size:18px;
+    font-family: "微软雅黑 Light";
+    font-weight: bold;
+}
+button:hover{
+    background-color: #0068d0;
+}

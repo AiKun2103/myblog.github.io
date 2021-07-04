@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/index.css" />
+    <link rel="stylesheet" href="./css/css/all.css">
+    <script src="./js/2048/jquery.min.js"></script>
+    <script src="./js/index.js"></script>
+    <script src="js/province.js"></script>
+    <title>index</title>
+  </head>
+  <body>
+    <!-- 外部容器 -->
+    <div class="wrap">
+         <!--遮罩-->
+         <div id='mask'>
+            <div class="maskTop">
+            </div>
+            <div class="maskBottom"></div>
+            <span class="maskLine"></span>
+          </div>
+      <!-- 头部 -->
+      <header id="header">
+        <!-- 头部内容容器 -->
+        <div class="headerMain">
+          <!-- 时钟 -->
+          <div id="clock">
+              <div class='clock1' id="h"></div>
+              <div class="clock2">:</div>
+              <div class="clock1" id="m"></div>
+              <div class="clock2">:</div>
+              <div class="clock1" id="s"></div>
+          </div>
+          <!-- 音乐播放器 -->
+          <div class="music">
+              <audio id="audio" src="./music/说好不哭.mp3"></audio>
+              <div>正在播放:
+                  <br>
+                  <span id='musicname'>收听音乐</span>
+              </div>
+              <ul>
+                  <li>
+                      <a href="javascript:;">
+                       <div id="lastmusic"><i class="fas fa-fast-backward"></i></div>
+                      </a>
+                  </li> 
+                  <li id="toggle">
+                    <a href="javascript:;">
+                    <div class="pause"><i  class="fas fa-pause pause"></i></div>
+                    <div class="play"><i  class="fas fa-play play"></i></div>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:;"> 
+                        <div id='nextmusic'><i class="fas fa-fast-forward"></i></div>
+                    </a>
+                </li>
+               </ul>
+          </div>
+          <!-- nav -->
+          <nav class="nav">
+              <ul>
+                  <li>
+                      <a href="javascript:;">
+                          <div class="up"><img src="./img/home_gruen.png" alt=""></div>
+                          <div class='down'><img src="./img/home.png" alt=""></div>
+                      </a>
+                  </li>
+                  <li>
+                    <a href="javascript:;">
+                        <div class="up">表格</div>
+                        <div class='down'>表格</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                        <div class="up">链接</div>
+                        <div class='down'>链接</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                        <div class="up">游戏</div>
+                        <div class='down'>游戏</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                        <div class="up">视频</div>
+                        <div class='down'>视频</div>
+                    </a>
+                </li>
+                <li id="li6">
+                    <a href="javascript:;">
+                        <div class="up">日历</div>
+                        <div class='down'>日历</div>
+                        <div id="calendar">
+                            <div>
+                                <button id="btn01">上个月</button>
+                                <div id="month"></div>
+                                <button id="btn02">下个月</button>
+                            </div>
+                            <div>
+                                <div class="everyday">日</div>
+                                <div class="everyday">一</div>
+                                <div class="everyday">二</div>
+                                <div class="everyday">三</div>
+                                <div class="everyday">四</div>
+                                <div class="everyday">五</div>
+                                <div class="everyday">六</div>
+                            </div>
+                            <div id='day'></div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:;" class="Login">
+                        <div class="up">注册</div>
+                        <div class='down'>注册</div>
+                    </a>
+                </li>
+              </ul>
+          </nav>
+        </div>
+        <!-- 下标 -->
+        <div class='arrow'></div>
+      </header>
+      <!-- 内容区 -->
+      <section id="content">
+         <!--侧边导航-->
+        <ul class="menuBar">
+            <li class="active"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <ul class="list">
+            <li>
+                <div class="home">
+                    <ul class="homeList">
+                        <li class="active">
+                            <span class="texts1">
+                                <nav class="texts11"> 独坐敬亭山</nav>   
+		                        <nav class="texts12">李白</nav>
+		                        <nav class="texts13">
+			                    众鸟高飞尽，
+			                    <br>
+			                    孤云独去闲。
+			                    <br>
+			                    相看两不厌，
+			                    <br>
+			                    只有敬亭山。
+                                </nav>           
+                            </span>
+                        </li>
+                        <li> 
+                            <span class="texts2">
+                                    <nav class="texts21">相思</nav>   
+                                    <nav class="texts22">王维 </nav>
+                                    <nav class="texts23">
+                                        红豆生南国，
+                                        <br>
+                                        春来发几枝。
+                                        <br>
+                                        愿君多采撷，
+                                        <br>
+                                        此物最相思。
+                                    </nav>           
+                            </span>
+                        </li>
+                        <li>
+                                <span class="texts3">
+                                    <nav class="texts31"> 山中送别</nav>   
+                                    <nav class="texts32">王维 </nav>
+                                    <nav class="texts33">
+                                        山中相送罢，
+                                        <br>
+                                        日暮掩柴扉。
+                                        <br>
+                                        春草明年绿，
+                                        <br>
+                                        王孙归不归？  
+                                </span>
+                        </li>
+                        <li>
+                                <span class="texts4">
+                                    <nav class="texts41"> 送灵澈上人</nav>   
+                                    <nav class="texts42">刘长卿 </nav>
+                                    <nav class="texts43">
+                                        苍苍竹林寺，
+                                        <br>
+                                        杳杳钟声晚。
+                                        <br>
+                                        荷笠带斜阳，
+                                        <br>
+                                        青山独归远。    
+                                </span>
+                        </li>
+                    </ul>
+                    <ul class="homeIcon">
+                        <li class="active"></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+               </div>
+            </li>
+            <li>
+                <div class="form">
+                    <div id="form1">
+                        <from method="post" action="">
+                            你爱好的运动是？<input type="checkbox" id="checkedAllBox" />全选/全不选
+                            <br>
+                            <input type="checkbox" name="items" value="足球">足球
+                            <input type="checkbox" name="items" value="篮球">篮球
+                            <input type="checkbox" name="items" value="羽毛球">羽毛球
+                            <input type="checkbox" name="items" value="乒乓球">乒乓球
+                            <br>
+                            <input type="button" id="checkedAllBtn" value="全 选">
+                            <input type="button" id="checkedNoBtn" value="全不选">
+                            <input type="button" id="checkedRevBtn" value="反选">
+                            <input type="button" id="sendBtn" value="提交">
+                        </from>
+                    </div>
+                    <div id="form2">
+                        <table id="employeeTable">
+                            <tr>
+                                <th>姓名</th>
+                                <th>邮箱</th>
+                                <th>工号</th>
+                                <th>&nbsp;</th>
+                            </tr>
+                            <tr>
+                                <td>Tom</td>
+                                <td>tom@tom.com</td>
+                                <td>5000</td>
+                                <td><a href="deleEmp?id=001">Delete</a></td>
+                            </tr>
+                            <tr>
+                                <td>Jerry</td>
+                                <td>jerry@sohu.com</td>
+                                <td>8000</td>
+                                <td><a href="deleEmp?id=002">Delete</a></td>
+                            </tr>
+                            <tr>
+                                <td>Bob</td>
+                                <td>bob@tom.com</td>
+                                <td>10000</td>
+                                <td><a href="deleEmp?id=003">Delete</a></td>
+                            </tr>
+                        </table>
+                        <div id="formDiv">
+                            <h4>添加新员工</h4>
+                            <table>
+                                <tr>
+                                    <td class="word">姓名:</td>
+                                    <td class="inp">
+                                        <input type="text" name="empName" id="empName">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="word">邮箱:</td>
+                                    <td class="inp">
+                                        <input type="text" name="email" id="email">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="word">工号:</td>
+                                    <td class="inp">
+                                        <input type="text" name="salary" id="salary">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" align="center">
+                                        <button id="addEmpButton" value="abc">
+                                            Submit
+                                        </button>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div id="form3">
+                        <div id="left1"	 >
+                            <div id="selectTop" class="size">
+                                <select multiple="multiple" id="select1" name="select1">
+                                    <option>我是左边1</option>
+                                    <option>我是左边2</option>
+                                    <option>我是左边3</option>
+                                    <option>我是左边4</option>
+                                </select>
+                            </div>
+                            <br />
+                            <div id="buttonBottom">
+                                <input type="button" id="input01" value="将选中的添加至右边"  />
+                                <br />
+                                <input type="button" id="input02" value="将全部的添加至右边"  />
+                            </div>
+                        </div>
+                        <div id="right1">
+                            <div class="size">
+                                <select multiple="multiple" id="select2">
+                                    <option>我是右边1</option>
+                                    <option>我是右边2</option>
+                                    <option>我是右边3</option>
+                                    <option>我是右边4</option>
+                                </select>
+                            </div>
+                            <br />
+                            <div>
+                                <input type="button" id="input03" value="将选中的添加至左边"  />
+                                <br />
+                                <input type="button" id="input04" value="将全部的添加至左边"  />
+                            </div>
+                        </div>
+                </div>
+            </li>
+            <li>
+                <div class="links">
+                    <header class="links1">
+                        <h2 class="commonTitle">
+                            <span>本页面设计</span><br>
+                            <span>三个超链接</span><br>
+                            <span>一个下载链接</span>
+                        </h2>
+                    </header>
+                    <div class="links2">
+                        <div class="item">
+                            <a href="https://www.baidu.com/">
+                                <img src="img/linking1.jpg" alt="">
+                                <div class="mask">
+                                    <span>百度</span>
+                                    <div class="icon"></div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="item">
+                            <a href="https://www.taobao.com/">
+                                <img src="img/linking2.jpg" alt="">
+                                <div class="mask">
+                                    <span>淘宝</span>
+                                    <div class="icon"></div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="item">
+                            <a href="https://www.jd.com/">
+                                <img src="img/linking3.jpg" alt="">
+                                <div class="mask">
+                                    <span>京东</span>
+                                    <div class="icon"></div>
+                                </div>
+                            </a>
+                        </div>
+                        <a href="./download/2019级计算课程设计要求.txt" download="课设要求">
+                            <div class="item">
+                                <img src="img/linking4.jpg" alt="">
+                                <div class="mask">
+                                    <span>下载</span>
+                                    <div class="icon"></div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="links3"></div>
+                    <div class="pencel1"></div>
+                    <div class="pencel2"></div>
+                    <div class="pencel3"></div>
+               </div>
+            </li>
+            <li>
+                <div class="game">
+                    <div id="questionaire">
+                        <h1>2048/愤怒的飞机游戏问卷调查</h1>
+                        <hr>
+                        <form method="post" action="URL" >
+                            <ol>
+                                <li>你的年龄是？</li>
+                                    <label>
+                                        <input type="radio" name="ql" value="ql_1" required/>18岁以下
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="ql" value="ql_2" required/>18-25岁
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="ql" value="ql_3" required/>26-30岁
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="ql" value="ql_4" required/>31-35岁
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="ql" value="ql_5" required/>35岁以上
+                                    </label>
+                                <li>您的学历为？</li>
+                                    <label>
+                                        <input type="radio" name="q2" value="q2_1" required/>小学
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="q2" value="q2_2" required/>初中
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="q2" value="q2_3" required/>高中
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="q2" value="q2_4" required/>本科
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="q2" value="q2_5" required/>硕士
+                                    </label>
+                                <li>曾经是否玩过小游戏？</li>
+                                    <label>
+                                        <input type="radio" name="q3" value="q3_1" required/>从没有过
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="q3" value="q3_2" required/>玩过一两次
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="q3" value="q3_3" required/>经常玩
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="q3" value="q3_4" required/>天天玩
+                                    </label>
+                                <li>您认为两款游戏哪个好玩？(多选)</li>
+                                    <label>
+                                        <input type="checkbox" name="q4" value="q4_1" />2048
+                                    </label>
+                                    <label>
+                                        <input type="checkbox" name="q4" value="q4_2" />愤怒的小飞机
+                                    </label>
+                                    <label>
+                                        <input type="checkbox" name="q4" value="q4_3" />都不好玩
+                                    </label>
+                                <li>您认为游戏吸引你的地方是哪里？(多选)</li>
+                                    <label>
+                                        <input type="checkbox" name="q5" value="q5_1" />操作简单
+                                    </label>
+                                    <label>
+                                        <input type="checkbox" name="q5" value="q5_2" />画风比较好
+                                    </label>
+                                    <label>
+                                        <input type="checkbox" name="q5" value="q5_3" />游戏内容风趣
+                                    </label>
+                                </ol>
+                                <label>姓名:
+                                    <input type="text" name="name" required/>
+                                </label>
+                                
+                                <label>职业:
+                                    <input type="text" name="position" required/>
+                                </label>
+                                <br>
+                                <label>电话:
+                                    <input type="text" name="tel" required/>
+                                </label>
+                                住址:<select class="provinceTarget inputEle selectTag" id="province">
+                                    <option data-index="-1" value="省份">省份</option>
+                                </select>   
+                                <!--城市选项列表-->
+                                <select class="cityTarget inputEle selectTag" id="city">
+                                    <option data-index="-1" value="城市">城市</option>
+                                </select>
+                                <div id="btn">
+                                    <button id="btn03" type="submit">提交问卷</button>
+                                </div>
+                        </form> 
+                     </div>
+
+                    <header class="game2">
+                        <h2 class="commonTitle2">
+                            <span>点击图片玩游戏</span>  
+                        </h2>
+                    </header>
+                    <div class="game1">
+                            <div class="item game2048">
+                                <span></span>
+                                <ul data-src="./img/game2.jpg"></ul>
+                            </div>
+                            <div class="item gameplane">
+                                <span></span>
+                                <ul data-src="./img/game4.jpg"></ul>
+                            </div>   
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="video">
+                    <div id="course">
+                        <video id="screen" width="640" src="./video/11.mp4" controls autoplay>
+                            对不起，您的浏览器不支持html5播放
+                        </video>
+                        <ul>
+                            <li>
+                                <h3>当程序出现一个bug</h3>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <footer class="footer1">
+                    <div class="footer2">版权所有:河北农业大学渤海校区计科1904班 </div>
+                    <div class="footer3">友情链接:河北农业大学  &nbsp &nbsp 联系方式：123456789 </div>
+                </footer>
+           </li>
+        </ul>
+    </section>
+    </div>
+  </body>
+</html>

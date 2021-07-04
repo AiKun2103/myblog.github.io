@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>愤怒的飞机</title>
+    <style>
+      body {
+        background-color: #2a2a2a;
+      }
+      canvas {
+        display: block;
+        border: 1px solid #313131;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 50px;
+      }
+      img {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="cvs" width="500" height="500"></canvas>
+    <script src="../js/plane/util.js"></script>
+    <script src="../js/plane/bird.js"></script>
+    <script src="../js/plane/land.js"></script>
+    <script src="../js/plane/pipe.js"></script>
+    <script src="../js/plane/sky.js"></script>
+    <script src="../js/plane/gameScene.js"></script>
+    <script src="../js/plane/overScene.js"></script>
+    <script>
+      var cvs = document.querySelector("#cvs");
+      var ctx = cvs.getContext("2d");
+
+      util.loadImage(
+        {
+          bird: "../img/bird.png",
+          land: "../img/land.png",
+          pipeDown: "../img/pipeDown.png",
+          pipeUp: "../img/pipeUp.png",
+          sky: "../img/sky.png",
+        },
+        function (imgObj) {
+          // 根据背景的大小设置画布的大小
+          cvs.width = imgObj.sky.width;
+          cvs.height = imgObj.sky.height;
+
+          // 游戏场景是否继续
+          var isRun = true;
+
+          // 创建游戏场景
+          var gameScene = getGameScene(ctx, imgObj);
+
+          // 创建游戏结束场景
+          var overScene = getOverScene(ctx);
+
+          // 添加小鸟死亡的听众
+          gameScene.addListener(function () {
+            isRun = false; // 游戏场景退场
+            overScene.draw(); // 结束场景切入
+          });
+
+          // 切入游戏场景，开始游戏
+          (function run() {
+            gameScene.draw();
+            if (isRun) {
+              requestAnimationFrame(run);
+            }
+          })();
+        }
+      );
+    </script>
+    <img src="../img/bird.png" alt="" />
+  </body>
+</html>
