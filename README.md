@@ -1,1 +1,1 @@
-goukun.top
+www.goukun.top
